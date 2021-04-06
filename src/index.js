@@ -1,7 +1,7 @@
 import VueProvideObservable from 'vue-provide-observable'
 
 
-const provideProps = () => {
+const propsFactory = () => {
   return {
     translationScope: null,
     defaultTranslationScope: null
@@ -10,22 +10,27 @@ const provideProps = () => {
 
 const nameMapper = (name) => `$${name}`
 
-
-export default {
+const VueTMixin = {
   mixins: [
-    VueProvideObservable('$vueT', provideProps, nameMapper)
+    VueProvideObservable('vueT', propsFactory, nameMapper)
   ],
   inject: {
-    $vueT: {
-      default: {}
+    vueT: {
+      default: { wrapper: {} }
     }
   },
   computed: {
     $translationScope() {
-      return this.$options.name || this.$vueT.translationScope || this.$defaultTranslationScope
+      return this.$options.vueT || this.vueT.wrapper.translationScope || this.$defaultTranslationScope
     },
     $defaultTranslationScope() {
-      return this.$vueT.defaultTranslationScope || 'defaults'
+      return this.vueT.wrapper.defaultTranslationScope || 'defaults'
     }
+  }
+}
+
+export default {
+  install(Vue, options){
+    Vue.mixin(VueTMixin)
   }
 }
