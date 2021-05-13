@@ -21,7 +21,7 @@ const VueTMixin = {
   },
   computed: {
     $translationScope() {
-      const vueTName = typeof this.$options.vueT === 'boolean' ? this.$options.name : this.options.vueT
+      const vueTName = typeof this.$options.vueT === 'boolean' ? this.$options.name : this.$options.vueT
 
       return vueTName || this.vueT.wrapper.translationScope || this.$defaultTranslationScope
     },
