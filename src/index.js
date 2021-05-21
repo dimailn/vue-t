@@ -1,4 +1,5 @@
 import VueProvideObservable from 'vue-provide-observable'
+import {installer} from 'vue-provide-observable'
 
 
 const propsFactory = () => {
@@ -33,6 +34,7 @@ const VueTMixin = {
 
 export default {
   install(Vue, options){
+    Vue.use(installer)
     Vue.mixin(VueTMixin)
   }
 }
