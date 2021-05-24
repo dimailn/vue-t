@@ -43,4 +43,25 @@ or
 
 ```
 
+Now you may use ```$t``` in this way
+
+```vue
+<template>
+
+<div>
+  <span>{{$t('.title')}}</span>
+</div>
+
+</template>
+
+<script>
+
+export default {
+  name: 'UserCard',
+  vueT: true
+}
+
+</script>
+
+```
 
