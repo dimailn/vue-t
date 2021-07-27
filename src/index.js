@@ -13,7 +13,7 @@ const nameMapper = (name) => `$${name}`
 
 const VueTMixin = {
   mixins: [
-    VueProvideObservable('vueT', propsFactory, nameMapper)
+    VueProvideObservable('vueT', propsFactory, nameMapper, (component) => !!component.$options.vueT)
   ],
   inject: {
     vueT: {
