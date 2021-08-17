@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vue-provide-observable": "^3.0.1"
+    "vue-provide-observable": "^3.0.2"
   }
 }
