@@ -4,7 +4,7 @@ A small helper which allows you to write contextual translations in Vue.
 
 # Installation
 
-```npm i --save vue-t```
+```npm i --save @dimailn/vue-t```
 
 ```javascript
 
